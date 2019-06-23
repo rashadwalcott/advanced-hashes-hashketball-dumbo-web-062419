@@ -213,7 +213,7 @@ end
   home = 0
     game_hash.each do |team_pos,team_stats|
      
-    if team_pos == team_pos[:home]
+    if team_pos.include? [:home]
        binding.pry
       player_stats.each do |key,value|
         
