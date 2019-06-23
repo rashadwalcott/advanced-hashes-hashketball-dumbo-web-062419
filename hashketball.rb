@@ -212,8 +212,8 @@ end
   away = 0
   home = 0
     game_hash.each do |team_pos,team_stats|
-      binding.pry
-    if team_pos == [:home]
+     
+    if team_pos == team_pos[:home]
       player_stats.each do |key,value|
         
         if key == :points
