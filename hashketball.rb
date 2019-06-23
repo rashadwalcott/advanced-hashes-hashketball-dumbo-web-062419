@@ -220,6 +220,7 @@ end
   end
 end
 end
+end
   game_hash.each do |team_pos,team_stats|
     team_pos[:away].each do |player_name, player_stats|
     player_stats.each do |key, value|
@@ -227,6 +228,7 @@ end
     away = away + value
   end
   end
+end
 end
 
   if away > home
