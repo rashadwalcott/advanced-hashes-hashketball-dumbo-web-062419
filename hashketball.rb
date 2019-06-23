@@ -225,8 +225,7 @@ end
   end
   end
 end
-home_team = game_hash[:home][:team_name]
-away_team = game_hash[:away][:team_name]
+
   if away > home
    puts game_hash[:away][:team_name]
   elsif home > away 
