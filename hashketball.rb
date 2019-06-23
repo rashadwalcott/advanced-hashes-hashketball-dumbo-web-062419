@@ -225,11 +225,14 @@ end
   end
   end
 end
+home_team = game_hash[:home][:team_name]
+away_team = game_hash[:away][:team_name]
   if away > home
-    game_hash[:away][:team_name]
+   puts game_hash[:away][:team_name]
   elsif home > away 
-   game_hash[:home][:team_name]
-else  "They tied!"
+   puts game_hash[:home][:team_name]
+else  
+  puts "They tied!"
   end
 end
 
