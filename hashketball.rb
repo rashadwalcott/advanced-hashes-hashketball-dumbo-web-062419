@@ -1,3 +1,4 @@
+require "pry"
 # Write your code here!
 def game_hash 
   hash = {:home => {
@@ -24,7 +25,7 @@ def game_hash
         :blocks => 12,
         :slam_dunks => 7
       },
-      "Brooke Lopez" => {
+      "Brook Lopez" => {
         :number => 11,
         :shoe => 17,
         :points => 17,
@@ -69,7 +70,7 @@ def game_hash
         :blocks => 7,
         :slam_dunks => 2
       },
-      "Bismak Biyombo" => {
+      "Bismack Biyombo" => {
         :number => 0,
         :shoe => 16,
         :points => 12,
@@ -116,38 +117,122 @@ def game_hash
 end
 
 def num_points_scored(name)
-  value= 0
+  results = nil
   game_hash.each do |team_pos,team_stats|
     team_stats[:players].each do |player_name,player_stats|
       if player_name == name
-        value = :points.values
+      return player_stats[:points]
       end
     end
   end
-  value
+
 end
 
-def shoe_size (name)
-  array =[]
+def shoe_size(name)
   game_hash.each do |team_pos,team_stats|
     team_stats[:players].each do |player_name,player_stats|
-      if player_name.include? name
-        array << player_stats[:shoe]
+      if player_name == name
+        return player_stats[:shoe]
       end
     end
   end
-  array
 end
 
 def team_colors(name)
- array =[]
   game_hash.each do |team_pos,team_stats|
       if team_stats[:team_name] == name
-        array << team_stats[:colors]
+        return team_stats[:colors]
       end
     end
+  
+end
+
+def team_names
+  array = []
+  game_hash.each do |team_pos, name|
+   array << name[:team_name]
+  end
   array
 end
 
+def player_numbers(name)
+  array = []
+  game_hash.each do |team_pos,team_stats|
+    if team_stats[:team_name] == name
+      team_stats[:players].each do |player_name, player_stats|
+        array << player_stats[:number]
+    end
+  end
+end
+  array
+end
 
+def player_stats(name)
+  game_hash.each do |team_pos,team_stats|
+    team_stats[:players].each do |player_name,player_stats|
+      if player_name == name
+       return player_stats
+      end
+    end
+  end
+end
+  
+  def big_shoe_rebounds
+    big_shoe = 0
+    number = nil
+    game_hash.each do |team_pos,team_stats|
+    team_stats[:players].each do |player_name,player_stats|
+      if big_shoe < player_stats[:shoe]
+        big_shoe = player_stats[:shoe]
+         number = player_stats[:rebounds]
+        
+  end
+end
+end
+number
+end
 
+def most_points_scored
+  most_points = 0
+  player = ""
+  game_hash.each do |team_position, team_stats|
+    team_stats[:players].each do |player_name, player_stats|
+      if most_points < player_stats[:points]
+         player = player_name
+        most_points = player_stats[:points]
+      else 
+        most_points
+      end
+   end
+  end
+  player 
+end
+
+ def winning_team 
+  away = 0
+  home = 0
+    game_hash[:home].each do |player_name, player_stats|
+      player_stats.each do |key,value|
+        if key == :points
+    home = home + value
+  end
+end
+end
+  game_hash[:away].each do |player_name, player_stats|
+    player_stats.each do |key, value|
+      if key == :points
+    away = away + value
+  end
+  end
+end
+  if away > home
+    game_hash[:away][:team_name]
+  elsif home > away 
+   game_hash[:home][:team_name]
+else  "They tied!"
+  end
+end
+
+def player_with_the_longest_name
+end
+  
