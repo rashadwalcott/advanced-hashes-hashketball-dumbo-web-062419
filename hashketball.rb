@@ -211,8 +211,8 @@ end
  def winning_team 
   away = 0
   home = 0
-    game_hash[:home].each do |player_name, player_stats|
-      
+    game_hash.each do |team_pos,team_stats|
+    team_pos[:home].each do |player_name, player_stats|
       player_stats.each do |key,value|
         binding.pry
         if key == :points
@@ -220,7 +220,8 @@ end
   end
 end
 end
-  game_hash[:away].each do |player_name, player_stats|
+  game_hash.each do |team_pos,team_stats|
+    team_pos[:away].each do |player_name, player_stats|
     player_stats.each do |key, value|
       if key == :points
     away = away + value
