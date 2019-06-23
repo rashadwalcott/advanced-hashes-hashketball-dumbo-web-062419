@@ -208,34 +208,5 @@ def most_points_scored
   player 
 end
 
- def winning_team 
-  away = 0
-  home = 0
-  game_hash.
-    game_hash[:home].each do |team_key, team_name|
-      player_stats.each do |key,value|
-        if key == :points
-    home = home + value
-  end
-end
-end
-  game_hash[:away].each do |player_name, player_stats|
-    player_stats.each do |key, value|
-      if key == :points
-    away = away + value
-  end
-  end
-end
 
-  if away > home
-   puts game_hash[:away][:team_name]
-  elsif home > away 
-   puts game_hash[:home][:team_name]
-else  
-  puts "They tied!"
-  end
-end
-
-def player_with_the_longest_name
-end
   
