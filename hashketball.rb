@@ -214,7 +214,6 @@ end
     game_hash.each do |team_pos,team_stats|
     team_pos[:home].each do |player_name, player_stats|
       player_stats.each do |key,value|
-        binding.pry
         if key == :points
     home = home + value
   end
